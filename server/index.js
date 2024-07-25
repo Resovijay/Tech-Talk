@@ -6,6 +6,9 @@ require('dotenv').config();
 const router =require('./router/route')
 const PORT = process.env.PORT || 4000;
 const cors = require('cors');
+const path = require('path');
+
+const __dirname = path.resolve();
 
 
 
@@ -38,7 +41,15 @@ dbConnect();
 const cloudinary = require("./configuration/cloudinary");
 cloudinary.cloudinaryConnect();
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+// });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
 
 
 
