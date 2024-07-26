@@ -27,9 +27,9 @@ export const getType = (value, body) => {
         return { params: body }
     } else if (value.query) {
         if (typeof body === 'object') {
-            console.log("body",body);
+           // console.log("body",body);
 
-            console.log("body_id",body._id);
+            //console.log("body_id",body._id);
             return { query: body._id }
         } else {
             return { query: body }
