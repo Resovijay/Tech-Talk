@@ -3,7 +3,7 @@ import {API_NOTIFICATION_MESSAGES, SERVICE_URLS} from'../constants/config'
 import { getAccessToken,getType} from '../utils/common-utils';
 //const API_URL = 'http://localhost:7000';
 //onst API_URL = "https://tech-talk-3alh.onrender.com"//process.env.REACT_APP_API_URL || 'http://localhost:7000';
-const API_URL = 'http://65.2.71.8:8000/' ;
+const API_URL = 'https://techtalk.builderx100.com/' ;
 
 
 
