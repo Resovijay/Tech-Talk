@@ -11,6 +11,7 @@ import { API } from '../../service/api.jsx';
 
 import { DataContext } from '../../context/Dataprovider.jsx';
 
+import parse from 'html-react-parser';
 
 
 //import ReactHtmlParser from 'html-react-parser';
@@ -84,7 +85,7 @@ const DetailView = () => {
         }
         fetchData();
         // eslint-disable-next-line 
-    }, []);
+    }, [id]);
 
     const deleteBlog = async () => {  
         await API.deletePost(post._id);
@@ -112,7 +113,8 @@ const DetailView = () => {
                 <Typography style={{marginLeft: 'auto'}}>{new Date(post.createdDate).toDateString()}</Typography>
             </Author>
 
-            <Description>{post.description}</Description>
+            {/* <Description>{parse(post.description)}</Description> */}
+            <Description dangerouslySetInnerHTML={{ __html: post.description }} />
             <Comments post={post} />
         </Container>
     )
